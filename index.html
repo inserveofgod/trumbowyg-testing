@@ -45,6 +45,7 @@
 
     <!-- editör -->
     <script src="node_modules/trumbowyg/dist/trumbowyg.min.js"></script>
+
     <!-- plugins -->
     <!-- renkler -->
     <script src="node_modules/trumbowyg/dist/plugins/colors/trumbowyg.colors.min.js"></script>
@@ -52,11 +53,11 @@
     <!-- tablo -->
     <script src="node_modules/trumbowyg/dist/plugins/table/trumbowyg.table.min.js"></script>
 
-    <!-- upload -->
-    <script src="node_modules/trumbowyg/dist/plugins/upload/trumbowyg.upload.min.js"></script>
-
     <!-- editör içerisindeki resimleri mouse ile boyutlandırabilmek için kütüphane -->
     <script src="node_modules/trumbowyg/dist/plugins/resizimg/trumbowyg.resizimg.min.js"></script>
+    
+    <!-- galeri modülümüz -->
+    <script src="node_modules/trumbowyg/dist/plugins/gallery/trumbowyg.gallery.js"></script>
 
     <!-- localization örn: {{ app.request._locale }} -->
     <script src="node_modules/trumbowyg/dist/langs/tr.min.js"></script>
@@ -76,8 +77,10 @@
                     ['unorderedList', 'orderedList'],
                     ['horizontalRule'],
                     ['removeformat'],
-                    /* tablo ve tablo border rengi eklemek için */
-                    ['table', 'tableBorderColor'],
+                    /* tablo eklemek için */
+                    ['table'],
+                    /* galeri modülümüzü eklemek için */
+                    ['gallery'],
                     ['fullscreen'],
                 ],
                 /* dil ayarlaması yapmak için örn: {{ app.request._locale }} */
@@ -90,9 +93,9 @@
                     img: 'img-fluid'
                 },
                 /* kaldırılmasını istediğiniz etiketleri buraya yazabilirsiniz */
-                tagsToRemove: ['script', 'link', 'table'],
+                // tagsToRemove: ['script', 'link', 'table'],
                 /* tutmak istediğiniz etiketleri buraya yazabilirsiniz */
-                tagsToKeep: ['p', 'article', 'span']
+                // tagsToKeep: ['p', 'article', 'span']
             })
         })
     </script>
