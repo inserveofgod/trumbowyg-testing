@@ -1,7 +1,0 @@
-ön ve arka renkler özelliği eklendi
-istenmeyen etiketlerin silinebilme özelliği eklendi
-gerekli etiketlerin tutulabilmesi özelliği eklendi
-tablo border özellikleri
-dil desteği eklendi
-resimleri mouse ile dinamik bir şekilde boyutlandırabilme özelliği eklendi
-

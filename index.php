@@ -28,12 +28,48 @@
 <body>
     <main>
         <div class="container my-5">
-            <form action="" method="post" enctype="multipart/form-data">
-                <textarea id="trumbowyg-demo"></textarea>
-            </form>
+            <textarea id="trumbowyg-demo"></textarea>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary d-none" id="launchFileUploadModal" data-bs-toggle="modal"
+                data-bs-target="#fileUploadModal">
+                Launch modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="fileUploadModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-primary">Upload File(s)</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="progress mb-3">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                                    role="progressbar" style="width: 0%;" id="fileProgress">0%</div>
+                            </div>
+                            <form action="" method="post" enctype="multipart/form-data" id="fileUploadForm">
+                                <div class="input-group">
+                                    <input type="file" class="form-control" id="ImageFiles" name="image_files[]"
+                                        accept="image/*" multiple required>
+                                    <button type="submit" class="btn btn-outline-primary">Upload</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-danger" id="ImageUploadCancelButton"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-success" id="ImageInsertButton">
+                                Insert Images
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
-
 
     <!-- bootstrap ve jquery kütüphaneleri -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -55,9 +91,9 @@
 
     <!-- editör içerisindeki resimleri mouse ile boyutlandırabilmek için kütüphane -->
     <script src="node_modules/trumbowyg/dist/plugins/resizimg/trumbowyg.resizimg.min.js"></script>
-    
-    <!-- galeri modülümüz -->
-    <script src="node_modules/trumbowyg/dist/plugins/gallery/trumbowyg.gallery.js"></script>
+
+    <!-- kendi upload modülümüz -->
+    <script src="node_modules/trumbowyg/dist/plugins/image_upload/trumbowyg.image_upload.js"></script>
 
     <!-- localization örn: {{ app.request._locale }} -->
     <script src="node_modules/trumbowyg/dist/langs/tr.min.js"></script>
@@ -79,8 +115,8 @@
                     ['removeformat'],
                     /* tablo eklemek için */
                     ['table'],
-                    /* galeri modülümüzü eklemek için */
-                    ['gallery'],
+                    /* kendi upload mödülümüzü eklemek için */
+                    ['imageUpload'],
                     ['fullscreen'],
                 ],
                 /* dil ayarlaması yapmak için örn: {{ app.request._locale }} */
@@ -91,6 +127,9 @@
                 tagClasses: {
                     table: 'table table-bordered',
                     img: 'img-fluid'
+                },
+                semantic: {
+                    'div': 'div' // Editor does nothing on div tags now
                 },
                 /* kaldırılmasını istediğiniz etiketleri buraya yazabilirsiniz */
                 // tagsToRemove: ['script', 'link', 'table'],
