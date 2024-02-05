@@ -93,7 +93,7 @@
     <script src="node_modules/trumbowyg/dist/plugins/resizimg/trumbowyg.resizimg.min.js"></script>
 
     <!-- kendi upload modülümüz -->
-    <script src="node_modules/trumbowyg/dist/plugins/image_upload/trumbowyg.image_upload.js"></script>
+    <script src="node_modules/trumbowyg/dist/plugins/image_upload/trumbowyg.image_upload.min.js"></script>
 
     <!-- localization örn: {{ app.request._locale }} -->
     <script src="node_modules/trumbowyg/dist/langs/tr.min.js"></script>
