@@ -23,7 +23,7 @@
                         formData.append('image_files[]', files[i])
                     }
 
-                    $('#fileProgress').css('width', 0 + '%').text(0 + '%').removeClass('bg-danger')
+                    $('#fileProgress').css('width', 0 + '%').text(0 + '%')
 
                     $.ajax({
                         url: 'upload.php', // PHP script to handle file upload
@@ -35,7 +35,7 @@
                             var xhr = new XMLHttpRequest();
                             xhr.upload.addEventListener('progress', function (e) {
                                 if (e.lengthComputable) {
-                                    var percent = (e.loaded / e.total) * 100;
+                                    var percent = Math.round((e.loaded / e.total) * 100);
                                     $('#fileProgress').css('width', percent + '%').text(percent + '%')
                                 }
                             })
@@ -52,31 +52,31 @@
 
                             files.forEach(file => {
                                 if (file_count === 1) {
-                                    cols = "<div class='col-12'>" +
-                                        `<img src='${file}' alt='${file}' class='img-fluid'>` +
+                                    cols = "<div class='w-full'>" +
+                                        `<img src='${file}' alt='${file}' class='w-full'>` +
                                         "</div>"
                                 }
 
                                 if (file_count === 2) {
-                                    cols += "<div class='col-sm-6'>" +
-                                        `<img src='${file}' alt='${file}' class='img-fluid'>` +
+                                    cols += "<div class='w-1/2 sm:w-full'>" +
+                                        `<img src='${file}' alt='${file}' class='w-full'>` +
                                         "</div>"
                                 }
 
                                 if (file_count === 3) {
-                                    cols += "<div class='col-md-4 col-sm-6'>" +
-                                        `<img src='${file}' alt='${file}' class='img-fluid'>` +
+                                    cols += "<div class='md:w-1/3 sm:w-1/2'>" +
+                                        `<img src='${file}' alt='${file}' class='w-full'>` +
                                         "</div>"
                                 }
 
                                 if (file_count >= 4) {
-                                    cols += "<div class='col-lg-3 col-md-4 col-sm-6'>" +
-                                        `<img src='${file}' alt='${file}' class='img-fluid'>` +
+                                    cols += "<div class='lg:w-1/4 md:w-1/3 sm:w-1/2'>" +
+                                        `<img src='${file}' alt='${file}' class='w-full'>` +
                                         "</div>"
                                 }
                             })
 
-                            let container = `<section class='container'><div class='row gx-sm-5 gx-0 gy-5'>${cols}</div></section>`
+                            let container = `<section class='container'><div class='flex flex-wrap space-x-5 sm:space-x-0 space-y-5'>${cols}</div></section>`
 
                             $('#ImageInsertButton').on('click', () => {
                                 $('#trumbowyg-demo').trumbowyg('html', container)
@@ -84,7 +84,7 @@
                         },
                         error: function (xhr, status, error) {
                             // Handle error response from server
-                            $('#fileProgress').css('width', 100 + '%').text("Error uploading files").addClass('bg-danger')
+                            $('#fileProgress').css('width', 100 + '%').text("Error uploading files")
                         }
                     })
                 })

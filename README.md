@@ -17,7 +17,7 @@ kopyalayın (neden 2 tane plugins klasörü var bilmiyorum, vardır bir hikmeti 
 index.php içerisinde bulunan modal alanını trumbowyg editörünüzün altına yapıştırın.
 upload.php dosyasındaki kodları kendi dosya yükleme sisteminizle entegre edin.
 Kendi modülümüz bu PHP dosyasıyla AJAX üzerinden etkileşime geçip seçilen
-dosyaları sunucuya yükleyecek ve editörün içerisine yan yana bootstrap yapısını
+dosyaları sunucuya yükleyecek ve editörün içerisine yan yana tailwind yapısını
 kullanarak esnek bir yapıyla yerleştirecektir.
 
 Modal açıldıktan sonra yüklenen dosyaları editörün içine yüklemeden kapatmak istediğinizde
@@ -30,7 +30,7 @@ Sunucuya dosya yüklerken hatalarla karşılaşabilirsiniz. 405 veya 400 hatalar
 dosya yollarının veya form içerisindeki 'name' değerlerinin doğru verilip verilmediğini kontrol edin.
 
 Fazladan dosya yükleyebilmek için veya yüklenen dosyaların boyutunu artırmak için sunucu tarafında php.ini
-dosyasında şöyle bir değişikliğe gidilebilir. (Küçük verilen değerler sonucu kendi modülümüz istendiği gibi çalışmayabilir)
+dosyasında şöyle bir değişikliğe gidilebilir. (Düşük verilen değerler sonucu kendi modülümüz istendiği gibi çalışmayabilir)
 
 ; Maximum allowed size for uploaded files.
 ; https://php.net/upload-max-filesize
