@@ -32,10 +32,10 @@
                         contentType: false,
                         processData: false,
                         xhr: function () {
-                            var xhr = new XMLHttpRequest();
+                            var xhr = new XMLHttpRequest()
                             xhr.upload.addEventListener('progress', function (e) {
                                 if (e.lengthComputable) {
-                                    var percent = Math.round((e.loaded / e.total) * 100);
+                                    var percent = Math.round((e.loaded / e.total) * 100)
                                     $('#fileProgress').css('width', percent + '%').text(percent + '%')
                                 }
                             })
@@ -79,7 +79,9 @@
                             let container = `<section class='container'><div class='flex flex-wrap space-x-5 sm:space-x-0 space-y-5'>${cols}</div></section>`
 
                             $('#ImageInsertButton').on('click', () => {
-                                $('#trumbowyg-demo').trumbowyg('html', container)
+                                // Önceki içeriği sakla
+                                let previous_content = $('#trumbowyg-demo').trumbowyg('html')
+                                $('#trumbowyg-demo').trumbowyg('html', previous_content + container)
                             })
                         },
                         error: function (xhr, status, error) {
